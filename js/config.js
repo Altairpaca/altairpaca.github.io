@@ -10,7 +10,7 @@ const profile = {
   academicStatus: "HKUST(GZ) DSA Year 3", // e.g., "MSc Candidate at HKU", "Graduate, Class of 2027"
   titleSuffix: "Research published as Zhenzhuo Li",
 
-  email: "zli743@connect.hkust-gz.edu.cn",
+  email: "altairpaca@gmail.com",
   major: "Data Science and Big Data Technology",
   avatar_url: "assets/avatar.jpg",
 
