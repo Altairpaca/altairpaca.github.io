@@ -18,6 +18,12 @@ const profile = {
       location: "Guangzhou, China"
     },
     {
+      institution: "The University of Osaka",
+      degree: "Exchange Student",
+      dates: "Fall 2025",
+      location: "Osaka, Japan"
+    },
+    {
       institution: "Zhengzhou Foreign Language School",
       degree: "High School Diploma",
       dates: "2020 - 2023",
