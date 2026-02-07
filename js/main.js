@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const a = document.createElement('a');
       a.href = p.social[key];
       a.target = '_blank';
-      a.className = 'social-link';
+      a.className = 'social-btn';
       a.innerHTML = `<span>🔗</span> ${label}`;
       socialContainer.appendChild(a);
     }
