@@ -1,70 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Altair Li — AI & FinTech</title>
-  <meta name="description" content="Altair Li (李臻卓) | HKUST(GZ) DSA Year 3 | Research published as Zhenzhuo Li">
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/config.js" defer></script>
-  <script defer src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altair Li - AI & FinTech Portfolio</title>
+  
+  <!-- External Resources -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0c0c1d 0%, #1a1a2e 100%);
+      color: #e0e0ff;
+      overflow-x: hidden;
+    }
+    
+    .tech-font {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    
+    .glass-card {
+      background: rgba(20, 25, 40, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .avatar-border {
+      box-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
+      border: 2px solid rgba(100, 150, 255, 0.3);
+    }
+    
+    .section-title {
+      border-bottom: 1px solid rgba(100, 150, 255, 0.2);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+    
+    .skill-badge {
+      background: rgba(100, 150, 255, 0.1);
+      border: 1px solid rgba(100, 150, 255, 0.2);
+    }
+    
+    .project-card {
+      border-left: 3px solid #6495ff;
+    }
+    
+    .social-link {
+      background: rgba(100, 150, 255, 0.1);
+      border: 1px solid rgba(100, 150, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: rgba(100, 150, 255, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <header class="hero">
-      <img id="avatar" class="avatar" alt="Altair Li" />
-      <h1 id="display-name" class="name">Loading...</h1>
-      <p id="title" class="title">Loading...</p>
-      <p class="contact">
-        <a id="email-link" href="mailto:zli743@connect.hkust-gz.edu.cn">zli743@connect.hkust-gz.edu.cn</a>
-      </p>
-      <div class="social-links" id="social-links"></div>
-    </header>
+<body class="min-h-screen">
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="text-center py-12 animate__animated animate__fadeInUp">
+      <div class="flex justify-center mb-6">
+        <img id="avatar" src="assets/avatar.jpg" alt="Altair Li" class="w-60 h-60 rounded-full object-cover avatar-border">
+      </div>
+      <h1 id="display-name" class="text-4xl md:text-5xl font-bold text-white mb-2"></h1>
+      <p id="title" class="text-xl text-blue-300 mb-4"></p>
+      <p id="career-goals" class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"></p>
+      
+      <div id="contact" class="mt-6">
+        <a id="email-link" href="#" class="text-blue-300 hover:underline"></a>
+      </div>
+      
+      <div id="social-links" class="flex justify-center gap-4 mt-6 flex-wrap"></div>
+    </section>
 
-    <main class="content">
-      <section class="card">
-        <h2><span class="accent">🎯</span> Career Vision</h2>
-        <p id="career-goals" class="text">Loading...</p>
-      </section>
+    <!-- Career Vision -->
+    <section id="vision" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-1s">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
+        <i class="fas fa-bullseye text-blue-400"></i> Career Vision
+      </h2>
+      <div id="vision-content" class="text-gray-200"></div>
+    </section>
 
-      <!-- 其他 sections 不变 -->
-      <section class="card">
-        <h2><span class="accent">🎓</span> Education</h2>
-        <ul id="education-list" class="timeline"></ul>
-      </section>
+    <!-- Education -->
+    <section id="education" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-2s">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
+        <i class="fas fa-graduation-cap text-blue-400"></i> Education
+      </h2>
+      <ul id="education-list" class="space-y-4"></ul>
+    </section>
 
-      <section class="card">
-        <h2><span class="accent">🛠️</span> Technical Proficiencies</h2>
-        <div id="skills-container" class="skills-grid"></div>
-      </section>
+    <!-- Skills -->
+    <section id="skills" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-3s">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
+        <i class="fas fa-code text-blue-400"></i> Core Competencies
+      </h2>
+      <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
 
-      <section class="card">
-        <h2><span class="accent">🔬</span> Selected Projects</h2>
-        <div id="projects-list" class="projects"></div>
-      </section>
+    <!-- Projects -->
+    <section id="projects" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-4s">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
+        <i class="fas fa-project-diagram text-blue-400"></i> Research & Projects
+      </h2>
+      <div id="projects-list" class="space-y-6"></div>
+    </section>
 
-      <section class="card">
-        <h2><span class="accent">🏆</span> Honors & Engagement</h2>
-        <div class="honors-grid">
-          <div>
-            <h3>Awards</h3>
-            <ul id="awards-list"></ul>
-          </div>
-          <div>
-            <h3>Certificates</h3>
-            <ul id="certs-list"></ul>
-          </div>
-          <div>
-            <h3>Volunteering</h3>
-            <ul id="volunteer-list"></ul>
-          </div>
+    <!-- Honors & Achievements -->
+    <section id="honors" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-5s">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
+        <i class="fas fa-trophy text-blue-400"></i> Honors & Achievements
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
+            <i class="fas fa-award text-yellow-400"></i> Awards
+          </h3>
+          <ul id="awards-list" class="space-y-2"></ul>
         </div>
-      </section>
-    </main>
+        <div>
+          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
+            <i class="fas fa-certificate text-green-400"></i> Certifications
+          </h3>
+          <ul id="certs-list" class="space-y-2"></ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
+            <i class="fas fa-handshake text-purple-400"></i> Volunteering
+          </h3>
+          <ul id="volunteer-list" class="space-y-2"></ul>
+        </div>
+      </div>
+    </section>
 
-    <footer class="footer">
-      <p id="footer-text">© 2026 Altair Li (Zhenzhuo Li). All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-400 animate__animated animate__fadeIn animate__delay-6s">
+      <p id="footer-text"></p>
     </footer>
+
   </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
