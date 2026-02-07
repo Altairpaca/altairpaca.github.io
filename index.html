@@ -3,155 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LI Zhenzhuo - Data Science & FinTech</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="config.js" defer></script>
-  <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-      const p = profile;
-
-      // 基础信息
-      document.getElementById('name').textContent = p.name;
-      document.getElementById('title').textContent = p.title;
-      document.getElementById('email').href = `mailto:${p.email}`;
-      document.getElementById('email').textContent = p.email;
-      document.getElementById('avatar').src = p.avatar_url;
-
-      // 教育背景
-      const eduList = document.getElementById('education-list');
-      p.education.forEach(edu => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${edu.institution}</strong><br>
-          ${edu.degree} | ${edu.dates}${edu.gpa ? ` | GPA: ${edu.gpa}` : ''}<br>
-          <em>${edu.location}</em>`;
-        eduList.appendChild(li);
-      });
-
-      // 职业目标
-      document.getElementById('career-goals').textContent = p.career_goals;
-
-      // 技能
-      const renderSkills = (containerId, skills) => {
-        const container = document.getElementById(containerId);
-        skills.forEach(skill => {
-          const span = document.createElement('span');
-          span.className = 'skill-tag';
-          span.textContent = skill;
-          container.appendChild(span);
-        });
-      };
-      renderSkills('skills-prog', p.skills.programming);
-      renderSkills('skills-lib', p.skills.libraries);
-      renderSkills('skills-tools', p.skills.tools);
-      renderSkills('skills-lang', p.skills.languages);
-
-      // 项目
-      const projList = document.getElementById('projects-list');
-      p.projects.forEach(proj => {
-        const article = document.createElement('article');
-        article.className = 'project';
-        let linksHTML = '';
-        if (proj.links.paper) linksHTML += `<a href="${proj.links.paper}" target="_blank">📄 Paper</a> `;
-        if (proj.links.github) linksHTML += `<a href="${proj.links.github}" target="_blank">💻 Code</a> `;
-        if (proj.links.demo) linksHTML += `<a href="${proj.links.demo}" target="_blank">🖥️ Demo</a> `;
-
-        article.innerHTML = `
-          <h3>${proj.name}</h3>
-          <div class="project-meta">${proj.date}</div>
-          <p>${proj.description}</p>
-          <div class="tech-stack">${proj.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}</div>
-          <p><strong>Outcome:</strong> ${proj.outcomes}</p>
-          ${linksHTML ? `<div class="project-links">${linksHTML}</div>` : ''}
-        `;
-        projList.appendChild(article);
-      });
-
-      // 奖项等
-      const renderList = (id, items) => {
-        const ul = document.getElementById(id);
-        items.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item;
-          ul.appendChild(li);
-        });
-      };
-      renderList('awards-list', p.awards);
-      renderList('certs-list', p.certificates);
-      renderList('volunteer-list', p.volunteering);
-
-      // 社交链接（仅显示非空项）
-      const socialLinks = document.getElementById('social-links');
-      const socialMap = [
-        { key: 'github', icon: '🐱', label: 'GitHub' },
-        { key: 'linkedin', icon: '🔗', label: 'LinkedIn' },
-        { key: 'google_scholar', icon: '🎓', label: 'Google Scholar' },
-        { key: 'resume', icon: '📄', label: 'Resume' }
-      ];
-      socialMap.forEach(({ key, icon, label }) => {
-        if (p.social[key]) {
-          const a = document.createElement('a');
-          a.href = p.social[key];
-          a.target = '_blank';
-          a.textContent = `${icon} ${label}`;
-          a.className = 'social-link';
-          socialLinks.appendChild(a);
-        }
-      });
-    });
-  </script>
+  <title>Altair Li — AI & FinTech</title>
+  <meta name="description" content="Altair Li (李臻卓) | HKUST(GZ) DSA Year 3 | Research published as Zhenzhuo Li">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js" defer></script>
+  <script defer src="js/main.js"></script>
 </head>
 <body>
-  <header>
-    <img id="avatar" alt="Profile photo" />
-    <h1 id="name">Loading...</h1>
-    <p id="title" class="subtitle">Loading...</p>
-    <p><a id="email" href="#">Loading...</a></p>
-  </header>
+  <div class="container">
+    <header class="hero">
+      <img id="avatar" class="avatar" alt="Altair Li" />
+      <h1 id="display-name" class="name">Loading...</h1>
+      <p id="title" class="title">Loading...</p>
+      <p class="contact">
+        <a id="email-link" href="mailto:zli743@connect.hkust-gz.edu.cn">zli743@connect.hkust-gz.edu.cn</a>
+      </p>
+      <div class="social-links" id="social-links"></div>
+    </header>
 
-  <main>
-    <section>
-      <h2>🎯 Career Goals</h2>
-      <p id="career-goals">Loading...</p>
-    </section>
+    <main class="content">
+      <section class="card">
+        <h2><span class="accent">🎯</span> Career Vision</h2>
+        <p id="career-goals" class="text">Loading...</p>
+      </section>
 
-    <section>
-      <h2>🎓 Education</h2>
-      <ul id="education-list"></ul>
-    </section>
+      <!-- 其他 sections 不变 -->
+      <section class="card">
+        <h2><span class="accent">🎓</span> Education</h2>
+        <ul id="education-list" class="timeline"></ul>
+      </section>
 
-    <section>
-      <h2>🛠️ Skills</h2>
-      <div><strong>Programming:</strong> <div id="skills-prog"></div></div>
-      <div><strong>Libraries & Frameworks:</strong> <div id="skills-lib"></div></div>
-      <div><strong>Tools & Platforms:</strong> <div id="skills-tools"></div></div>
-      <div><strong>Languages:</strong> <div id="skills-lang"></div></div>
-    </section>
+      <section class="card">
+        <h2><span class="accent">🛠️</span> Technical Proficiencies</h2>
+        <div id="skills-container" class="skills-grid"></div>
+      </section>
 
-    <section>
-      <h2>🔬 Projects</h2>
-      <div id="projects-list"></div>
-    </section>
+      <section class="card">
+        <h2><span class="accent">🔬</span> Selected Projects</h2>
+        <div id="projects-list" class="projects"></div>
+      </section>
 
-    <section>
-      <h2>🏆 Honors & Activities</h2>
-      <div>
-        <h3>Awards</h3>
-        <ul id="awards-list"></ul>
-      </div>
-      <div>
-        <h3>Certificates</h3>
-        <ul id="certs-list"></ul>
-      </div>
-      <div>
-        <h3>Volunteering</h3>
-        <ul id="volunteer-list"></ul>
-      </div>
-    </section>
+      <section class="card">
+        <h2><span class="accent">🏆</span> Honors & Engagement</h2>
+        <div class="honors-grid">
+          <div>
+            <h3>Awards</h3>
+            <ul id="awards-list"></ul>
+          </div>
+          <div>
+            <h3>Certificates</h3>
+            <ul id="certs-list"></ul>
+          </div>
+          <div>
+            <h3>Volunteering</h3>
+            <ul id="volunteer-list"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <footer>
-      <div id="social-links"></div>
-      <p>© 2026 LI Zhenzhuo. Built with HTML, CSS, and JavaScript.</p>
+    <footer class="footer">
+      <p id="footer-text">© 2026 Altair Li (Zhenzhuo Li). All rights reserved.</p>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
