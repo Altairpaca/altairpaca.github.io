@@ -39,7 +39,7 @@ const profile = {
   projects: [
     {
       name: "LENS: Large Pre-trained Transformer for Exploring Financial Time Series Regularities",
-      date: "Summer 2024 - Present",
+      date: "June 2024 - Aug 2025",
       description: "Co-authored a research paper proposing a novel pre-trained Transformer framework for financial time-series analysis. Designed and implemented the multi-market data normalization pipeline for NASDAQ and other exchanges.",
       outcomes: "Accepted at ACM International Conference on AI in Finance (ICAIF) 2025.",
       tech: ["Python", "PyTorch", "Pandas", "NumPy"],
@@ -54,7 +54,7 @@ const profile = {
     },
     {
       name: "SpatialReflect: Spatial-Guided Reflection for Region-Specific Stylization",
-      date: "Jan 2025 - Present",
+      date: "Jan 2025 - Jan 2026",
       description: "First-author research on diffusion model-based image stylization with spatial control. Developed automated evaluation tools and conducted ablation studies.",
       outcomes: "Manuscript under review at IEEE ICME 2026.",
       tech: ["Python", "PyTorch", "Stable Diffusion", "Hugging Face Diffusers"],
@@ -67,7 +67,7 @@ const profile = {
     },
     {
       name: "ASC25 World Student Supercomputer Challenge",
-      date: "Mar 2025 - May 2025",
+      date: "Dec 2024 - Feb 2025",
       description: "Core team member in global finals. Optimized HPC applications using C++, MPI, and Slurm for performance tuning.",
       outcomes: "Awarded Second Prize in Global Finals.",
       tech: ["C++", "Python", "Linux", "MPI", "Slurm", "OpenMP"],
