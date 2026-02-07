@@ -47,7 +47,7 @@ const profile = {
       conference: "ACM ICAIF",
       year: 2025,
       links: {
-        paper: "https://dl.acm.org/doi/...", // ← Replace with actual DOI after publication
+        paper: "https://doi.org/10.1145/3768292.3770349", // ← Replace with actual DOI after publication
         // github: "#", // Not publicly available; keep as placeholder
         // demo: "#"
       }
