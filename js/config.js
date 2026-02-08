@@ -58,19 +58,19 @@ const profile = {
         // demo: "#"
       }
     },
-    {
-      name: "SpatialReflect: Spatial-Guided Reflection for Region-Specific Stylization",
-      date: "Jan 2025 - Jan 2026",
-      description: "First-author research on diffusion model-based image stylization with spatial control. Developed automated evaluation tools and conducted ablation studies.",
-      outcomes: "Manuscript under review at IEEE ICME 2026.",
-      tech: ["Python", "PyTorch", "Stable Diffusion", "Hugging Face Diffusers"],
-      isPublished: false,
-      links: {
-        // paper: "#", // Will update upon submission
-        // github: "#",
-        // demo: "#"
-      }
-    },
+    // {
+    //   name: "SpatialReflect: Spatial-Guided Reflection for Region-Specific Stylization",
+    //   date: "Jan 2025 - Jan 2026",
+    //   description: "First-author research on diffusion model-based image stylization with spatial control. Developed automated evaluation tools and conducted ablation studies.",
+    //   outcomes: "Manuscript under review at IEEE ICME 2026.",
+    //   tech: ["Python", "PyTorch", "Stable Diffusion", "Hugging Face Diffusers"],
+    //   isPublished: false,
+    //   links: {
+    //     // paper: "#", // Will update upon submission
+    //     // github: "#",
+    //     // demo: "#"
+    //   }
+    // },
     {
       name: "ASC25 World Student Supercomputer Challenge",
       date: "Dec 2024 - Feb 2025",
