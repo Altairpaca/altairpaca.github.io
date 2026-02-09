@@ -49,7 +49,7 @@ const profile = {
       description: "Co-authored a research paper proposing a novel pre-trained Transformer framework for financial time-series analysis. Designed and implemented the multi-market data normalization pipeline for NASDAQ and other exchanges.",
       outcomes: "Accepted at ACM International Conference on AI in Finance (ICAIF) 2025.",
       tech: ["Python", "PyTorch", "Pandas", "NumPy"],
-      isPublished: false,
+      isPublished: true,
       conference: "ACM ICAIF",
       year: 2025,
       links: {
