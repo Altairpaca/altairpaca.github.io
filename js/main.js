@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const outcome = document.createElement('p');
     let outcomeText = proj.outcomes;
     if (proj.isPublished) {
-      outcomeText += ` Published as ${p.academicName} et al., ${proj.conference} ${proj.year}.`;
+      outcomeText += ` Published on ${proj.conference} ${proj.year}.`;
     }
     outcome.className = 'text-gray-300';
     outcome.textContent = outcomeText;
