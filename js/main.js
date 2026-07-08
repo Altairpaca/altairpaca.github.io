@@ -37,12 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
     parent.appendChild(container);
   };
 
+  const skillLabels = {
+    programmingData: "Programming & Data",
+    aiml: "AI/ML",
+    financialMl: "Financial ML",
+    systems: "Systems",
+    languages: "Languages"
+  };
   const skillsContainer = document.getElementById('skills-container');
   for (const [category, items] of Object.entries(p.skills)) {
     const div = document.createElement('div');
-    const label = category
-      .replace(/([A-Z])/g, ' $1')
-      .replace(/^./, str => str.toUpperCase());
+    const label = skillLabels[category] || category;
     div.innerHTML = `<strong class="text-blue-300">${label}:</strong>`;
     renderTags(div, items);
     skillsContainer.appendChild(div);
