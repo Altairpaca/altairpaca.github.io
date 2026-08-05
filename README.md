@@ -1,29 +1,27 @@
-# Altair Li — AI & FinTech Portfolio
+# Altair Li — Personal Homepage
 
-Personal portfolio site for Zhenzhuo Li (李臻卓), Year 3 undergraduate at HKUST(GZ) specializing in Data Science and Big Data Technology.
+Personal academic homepage for Zhenzhuo Li (李臻卓), BSc candidate in Data Science and Big Data Technology at HKUST(GZ).
 
-Research interests: AI for financial markets, verifiable multi-agent systems, LLM reliability.
+## Design
 
-## Features
+- **Style**: original academic design — warm paper background, deep-green accent, serif display type (Newsreader) with monospace details (IBM Plex Mono)
+- **Reference**: design principles drawn from academic homepages (e.g., Prof. Zeke Xie's site) — clear hierarchy, one mission per section, news/status strip — transformed into an original composition
+- **Content source of truth**: `../canonical-profile.md` (all facts must be updated there first, then mirrored here)
 
-- Dark theme with glassmorphism effects
-- Responsive design
-- Dynamic content from `js/config.js`
-- GitHub Pages ready
-
-## Project Structure
+## Structure
 
 ```
-altairpaca.github.io/
-├── index.html          # Main page
+site/
+├── index.html       # Self-contained page: inline CSS + minimal scrollspy JS
 ├── assets/
-│   ├── avatar.jpg      # Headshot
-│   └── resume.pdf      # PDF resume
-├── js/
-│   ├── config.js       # Profile data (single source of truth)
-│   └── main.js         # Rendering logic
+│   ├── avatar.jpg   # Compressed 512px (58KB)
+│   └── resume.pdf   # Compiled from ../repo/English/main.tex (Aug 2026)
 └── README.md
 ```
+
+- Static HTML with content in the document body (SEO / AI-crawler friendly)
+- Meta description, Open Graph, Twitter Card, Schema.org Person + ScholarlyArticle JSON-LD
+- Responsive, print stylesheet, `prefers-reduced-motion` support
 
 ## Deployment
 

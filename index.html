@@ -1,163 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Altair Li - AI & FinTech Portfolio</title>
-  
-  <!-- External Resources -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-    /* Custom Styles */
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0c0c1d 0%, #1a1a2e 100%);
-      color: #e0e0ff;
-      overflow-x: hidden;
-    }
-    
-    .tech-font {
-      font-family: 'IBM Plex Mono', monospace;
-    }
-    
-    .glass-card {
-      background: rgba(20, 25, 40, 0.6);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .avatar-border {
-      box-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
-      border: 2px solid rgba(100, 150, 255, 0.3);
-    }
-    
-    .section-title {
-      border-bottom: 1px solid rgba(100, 150, 255, 0.2);
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .hover-lift {
-      transition: all 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    }
-    
-    .skill-badge {
-      background: rgba(100, 150, 255, 0.1);
-      border: 1px solid rgba(100, 150, 255, 0.2);
-    }
-    
-    .project-card {
-      border-left: 3px solid #6495ff;
-    }
-    
-    .social-link {
-      background: rgba(100, 150, 255, 0.1);
-      border: 1px solid rgba(100, 150, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .social-link:hover {
-      background: rgba(100, 150, 255, 0.2);
-      transform: translateY(-2px);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhenzhuo (Altair) Li | Financial Machine Learning &amp; Quantitative Research</title>
+<meta name="description" content="Zhenzhuo Li — undergraduate researcher in financial machine learning and quantitative research at HKUST(GZ). Co-author of LENS (ACM ICAIF 2025). Research on neural feature discovery from Level-2 market data and leakage-aware signal evaluation.">
+<meta name="author" content="Zhenzhuo Li">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zhenzhuo (Altair) Li | Financial Machine Learning &amp; Quantitative Research">
+<meta property="og:description" content="Undergraduate researcher at HKUST(GZ). Financial ML, market microstructure, reliable signal evaluation. Co-author of LENS, published at ACM ICAIF 2025.">
+<meta property="og:url" content="https://altairpaca.github.io/">
+<meta property="og:image" content="assets/avatar.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zhenzhuo (Altair) Li | Financial ML &amp; Quantitative Research">
+<meta name="twitter:description" content="Financial ML, market microstructure, reliable signal evaluation. LENS co-author (ACM ICAIF 2025).">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zhenzhuo Li",
+  "alternateName": "Altair Li",
+  "email": "mailto:altairpaca@gmail.com",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Hong Kong University of Science and Technology (Guangzhou)"
+  },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Osaka University" },
+  "sameAs": [
+    "https://github.com/altairpaca",
+    "https://scholar.google.com/citations?user=md5Z-D8AAAAJ",
+    "https://www.linkedin.com/in/altair-li/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "LENS: Large Pre-trained Transformer for Exploring Financial Time Series Regularities",
+  "author": ["Yuanjian Xu", "Jianing Hao", "Anxian Liu", "Zhenzhuo Li", "Shichang Meng", "Shuai Yuan", "Guang Zhang"],
+  "isPartOf": {
+    "@type": "PublicationEvent",
+    "name": "Proceedings of the 6th ACM International Conference on AI in Finance (ICAIF '25)"
+  },
+  "pageStart": "771",
+  "pageEnd": "778",
+  "datePublished": "2025",
+  "doi": "10.1145/3768292.3770349"
+}
+</script>
+<style>
+  /* ============ Design tokens (original system) ============ */
+  :root {
+    --bg: #FAF7F1;            /* warm paper */
+    --surface: #FFFFFF;
+    --surface-alt: #F3EEE4;
+    --ink: #23201B;
+    --muted: #6F685C;
+    --line: #E7E0D2;
+    --accent: #2F6B4F;        /* deep green — reliability, finance */
+    --accent-ink: #1E4A36;
+    --accent-soft: #E4EEE7;
+    --gold: #9A7428;          /* restrained, awards only */
+    --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --maxw: 1080px;
+    --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-soft); }
+
+  /* ============ Top bar ============ */
+  header.site-head {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .head-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 0 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .brand { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .brand em { font-style: normal; color: var(--accent); }
+  nav.main-nav ul { display: flex; gap: 22px; list-style: none; }
+  nav.main-nav a {
+    font-size: 0.85rem; color: var(--muted); text-decoration: none;
+    padding: 4px 0; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+  }
+  nav.main-nav a:hover { color: var(--ink); border-color: var(--accent); }
+  nav.main-nav a.active { color: var(--accent-ink); border-color: var(--accent); }
+  .nav-cv {
+    font-family: var(--font-mono); font-size: 0.78rem;
+    border: 1px solid var(--accent); color: var(--accent-ink);
+    padding: 5px 12px; border-radius: var(--radius); text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .nav-cv:hover { background: var(--accent); color: #fff; }
+  @media (max-width: 760px) {
+    nav.main-nav ul { gap: 12px; }
+    nav.main-nav a { font-size: 0.78rem; }
+    .head-inner { padding: 0 16px; }
+  }
+
+  /* ============ Layout ============ */
+  main { max-width: var(--maxw); margin: 0 auto; padding: 0 28px 80px; }
+  section { padding: 56px 0 8px; scroll-margin-top: 64px; }
+  .sec-label {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 26px;
+  }
+  .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* ============ Hero ============ */
+  .hero {
+    display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 56px;
+    padding: 88px 0 40px; align-items: center;
+  }
+  .hero h1 {
+    font-family: var(--font-serif); font-weight: 500;
+    font-size: clamp(2.6rem, 5.4vw, 4.1rem); line-height: 1.05; letter-spacing: -0.01em;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .role {
+    margin-top: 18px; font-size: 1.08rem; color: var(--muted); max-width: 36em;
+  }
+  .hero .role strong { color: var(--ink); font-weight: 600; }
+  .hero .mission {
+    margin-top: 22px; font-family: var(--font-serif); font-style: italic; font-size: 1.15rem;
+    color: var(--accent-ink);
+  }
+  .hero-cta { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: var(--radius);
+    text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all .15s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-ink); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+  .hero-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 26px; box-shadow: 0 1px 0 rgba(35,32,27,0.04), 0 12px 32px -18px rgba(35,32,27,0.25);
+  }
+  .hero-card img {
+    width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+    display: block; margin-bottom: 16px; border: 3px solid var(--accent-soft);
+  }
+  .hero-card .who { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; }
+  .hero-card .where { font-size: 0.84rem; color: var(--muted); margin-top: 4px; }
+  .hero-card .stats { margin-top: 14px; font-size: 0.8rem; color: var(--muted); }
+  .hero-card .stats b { color: var(--ink); font-weight: 600; }
+  .social-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .social-row a {
+    font-family: var(--font-mono); font-size: 0.72rem; text-decoration: none;
+    color: var(--accent-ink); border: 1px solid var(--accent-soft); background: var(--accent-soft);
+    padding: 5px 11px; border-radius: 999px; transition: all .15s;
+  }
+  .social-row a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; }
+    .hero-card { max-width: 420px; }
+  }
+
+  /* ============ Now strip ============ */
+  .now-strip {
+    background: var(--accent-ink); color: #EDF3EE; border-radius: 10px;
+    padding: 22px 26px; display: flex; gap: 18px; align-items: flex-start; margin-top: 8px;
+  }
+  .now-strip .tag {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #9FD0B4; white-space: nowrap; padding-top: 3px;
+  }
+  .now-strip p { font-size: 0.96rem; }
+  .now-strip a { color: #CBE7D6; }
+  @media (max-width: 640px) { .now-strip { flex-direction: column; gap: 8px; } }
+
+  /* ============ Experience timeline ============ */
+  .timeline { border-left: 1px solid var(--line); margin-left: 6px; padding-left: 26px; display: grid; gap: 40px; }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -33px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .tl-item.current::before { background: var(--gold); }
+  .tl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .tl-org { font-family: var(--font-serif); font-size: 1.22rem; font-weight: 600; }
+  .tl-role { font-size: 0.95rem; color: var(--muted); margin-top: 2px; }
+  .tl-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-ink); white-space: nowrap; }
+  .tl-body { margin-top: 10px; display: grid; gap: 6px; }
+  .tl-body li { margin-left: 18px; font-size: 0.94rem; color: #4A453C; }
+  .tl-body strong { color: var(--ink); }
+
+  /* ============ Research ============ */
+  .research-item {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 24px 26px; margin-bottom: 18px;
+  }
+  .ri-top { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .ri-title { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; }
+  .ri-role { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+  .ri-status {
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em;
+    padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .ri-status.published { background: var(--accent-soft); color: var(--accent-ink); }
+  .ri-status.ongoing { background: #F6EBD8; color: #7A5A1E; }
+  .ri-status.ended { background: var(--surface-alt); color: var(--muted); }
+  .ri-body { margin-top: 12px; display: grid; gap: 6px; }
+  .ri-body li { margin-left: 18px; font-size: 0.94rem; color: #4A453C; }
+
+  /* ============ Publications ============ */
+  .pub {
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: var(--radius); padding: 20px 24px; font-size: 0.94rem;
+  }
+  .pub .authors { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+  .pub .links { margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.85rem; }
+  .pub .links a { color: var(--accent-ink); text-underline-offset: 3px; }
+  .pub .links .mono { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
+
+  /* ============ Awards table ============ */
+  .awards { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+  .awards th {
+    text-align: left; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 500;
+    padding: 0 12px 10px 0; border-bottom: 1px solid var(--line);
+  }
+  .awards td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .awards tr:last-child td { border-bottom: none; }
+  .awards .yr { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-ink); white-space: nowrap; }
+  .awards .res { font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .awards .note { color: var(--muted); font-size: 0.86rem; }
+  .awards .gold { color: var(--gold); }
+
+  /* ============ Leadership / Education / Skills ============ */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+  .lead-item { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .lead-item:last-child { border-bottom: none; }
+  .lead-item .t { font-weight: 600; font-size: 0.95rem; }
+  .lead-item .d { font-size: 0.86rem; color: var(--muted); }
+  .lead-item .when { font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-ink); }
+
+  .edu-block { margin-bottom: 20px; }
+  .edu-block .school { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; }
+  .edu-block .deg { font-size: 0.9rem; color: var(--muted); }
+  .edu-block .detail { font-size: 0.88rem; margin-top: 6px; color: #4A453C; }
+  .edu-block .detail b { color: var(--ink); }
+
+  .skill-group { margin-bottom: 18px; }
+  .skill-group dt {
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .skill-group dd { font-size: 0.92rem; color: #4A453C; }
+
+  /* ============ Footer ============ */
+  footer {
+    border-top: 1px solid var(--line); margin-top: 40px;
+    padding: 44px 28px 56px; text-align: center; background: var(--surface-alt);
+  }
+  footer .quote {
+    font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; color: var(--accent-ink);
+    max-width: 30em; margin: 0 auto 14px;
+  }
+  footer .meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+
+  /* ============ Print ============ */
+  @media print {
+    header.site-head, .hero-cta, .social-row { display: none; }
+    body { background: #fff; }
+    main { max-width: 100%; padding: 0; }
+    section { padding-top: 24px; }
+  }
+</style>
 </head>
-<body class="min-h-screen">
-  <div class="container mx-auto px-4 py-8 max-w-4xl">
-    
-    <!-- Hero Section -->
-    <section id="hero" class="text-center py-12 animate__animated animate__fadeInUp">
-      <div class="flex justify-center mb-6">
-        <img id="avatar" src="assets/avatar.jpg" alt="Altair Li" class="w-60 h-60 rounded-full object-cover avatar-border">
-      </div>
-      <h1 id="display-name" class="text-4xl md:text-5xl font-bold text-white mb-2"></h1>
-      <p id="title" class="text-xl text-blue-300 mb-4"></p>
-      <p id="career-goals" class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"></p>
-      
-      <div id="contact" class="mt-6">
-        <a id="email-link" href="#" class="text-blue-300 hover:underline"></a>
-      </div>
-      
-      <div id="social-links" class="flex justify-center gap-4 mt-6 flex-wrap"></div>
-    </section>
+<body>
 
-    <!-- Career Vision -->
-    <section id="vision" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-1s">
-      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
-        <i class="fas fa-bullseye text-blue-400"></i> Career Vision
-      </h2>
-      <div id="vision-content" class="text-gray-200"></div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-2s">
-      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
-        <i class="fas fa-graduation-cap text-blue-400"></i> Education
-      </h2>
-      <ul id="education-list" class="space-y-4"></ul>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-3s">
-      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
-        <i class="fas fa-code text-blue-400"></i> Core Competencies
-      </h2>
-      <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-4s">
-      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
-        <i class="fas fa-project-diagram text-blue-400"></i> Research & Projects
-      </h2>
-      <div id="projects-list" class="space-y-6"></div>
-    </section>
-
-    <!-- Honors & Achievements -->
-    <section id="honors" class="glass-card rounded-xl p-6 mb-8 animate__animated animate__fadeInUp animate__delay-5s">
-      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 section-title">
-        <i class="fas fa-trophy text-blue-400"></i> Honors & Achievements
-      </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div>
-          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
-            <i class="fas fa-award text-yellow-400"></i> Awards
-          </h3>
-          <ul id="awards-list" class="space-y-2"></ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
-            <i class="fas fa-certificate text-green-400"></i> Certifications
-          </h3>
-          <ul id="certs-list" class="space-y-2"></ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-medium text-blue-300 mb-3 flex items-center gap-1">
-            <i class="fas fa-handshake text-purple-400"></i> Volunteering
-          </h3>
-          <ul id="volunteer-list" class="space-y-2"></ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-8 text-gray-400 animate__animated animate__fadeIn animate__delay-6s">
-      <p id="footer-text"></p>
-    </footer>
-
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="#top">Zhenzhuo <em>Li</em> · 李臻卓</a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cv" href="assets/resume.pdf" download>CV (PDF)</a>
   </div>
+</header>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" aria-label="Introduction">
+    <div>
+      <h1>Zhenzhuo <span class="accent">Li</span><br>李臻卓</h1>
+      <p class="role">Undergraduate researcher in <strong>financial machine learning</strong> and <strong>quantitative research</strong> at HKUST(GZ) — working on neural feature discovery from Level-2 market data, leakage-aware signal evaluation, and the translation of predictive signals into trading decisions.</p>
+      <p class="mission">“Markets are non-stationary. Good research is not.”</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="assets/resume.pdf">Download CV</a>
+        <a class="btn btn-ghost" href="mailto:altairpaca@gmail.com">altairpaca@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/avatar.jpg" alt="Zhenzhuo Li" width="96" height="96">
+      <div class="who">Zhenzhuo (Altair) Li</div>
+      <div class="where">BSc Candidate, Data Science &amp; Big Data Technology · Expected Jun 2027</div>
+      <div class="stats"><b>CGA</b> 3.807/4.3 · <b>Major CGA</b> 3.837 · <b>Dean’s List</b> ×3</div>
+      <div class="social-row">
+        <a href="https://scholar.google.com/citations?user=md5Z-D8AAAAJ">Google Scholar</a>
+        <a href="https://github.com/altairpaca">GitHub</a>
+        <a href="https://www.linkedin.com/in/altair-li/">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Now ============ -->
+  <section id="now" aria-label="Currently">
+    <div class="sec-label">Now</div>
+    <div class="now-strip">
+      <span class="tag">Jul 2026 —</span>
+      <p><strong>Quantitative Investment Modeling Research Intern</strong> at Xuanyuan Private Fund Management (Guangdong) Co., Ltd., independently leading research on neural feature and factor discovery from Level-2 market data. Co-author of <a href="#publications">LENS</a> (ACM ICAIF 2025). Currently applying for a FinTech PhD at HKUST(GZ), with research interests in reliability, transfer, and evaluation of financial foundation models under non-stationarity.</p>
+    </div>
+  </section>
+
+  <!-- ============ Experience ============ -->
+  <section id="experience" aria-label="Experience">
+    <div class="sec-label">Experience</div>
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-head">
+          <div>
+            <div class="tl-org">Xuanyuan Private Fund Management (Guangdong) Co., Ltd.</div>
+            <div class="tl-role">Quantitative Investment Modeling Research Intern · Guangzhou</div>
+          </div>
+          <span class="tl-date">Jul 2026 – Present</span>
+        </div>
+        <ul class="tl-body">
+          <li><strong>Independently responsible</strong> for research on neural feature and factor discovery from <strong>Level-2 equity-market data</strong> — data construction, model development, signal evaluation, and trading-decision analysis.</li>
+          <li>Built scalable pipelines for multi-year minute-level market panels: temporal and cross-asset coordinate alignment, memory-mapped storage, parallel I/O, sample filtering, and model-ready dataset construction.</li>
+          <li>Developed <strong>leakage-aware evaluation</strong> procedures for intraday and cross-day signals — information coefficient, temporal stability (RPS), entry timing (Buy-Now-vs-Wait), sample-selection audits.</li>
+          <li>Investigating neural and tree-based approaches (LightGBM, GRU, XGBoost) for market exposure and intraday entry decisions; findings under internal review.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <div>
+            <div class="tl-org">Shanghai Yunyan Private Fund Management Co., Ltd.</div>
+            <div class="tl-role">AI Investment Research Intern</div>
+          </div>
+          <span class="tl-date">May 2026 – Jul 2026</span>
+        </div>
+        <ul class="tl-body">
+          <li>Conducted AI-assisted investment research on <strong>semiconductor and AI infrastructure</strong> sectors; built workflows to collect and synthesize heterogeneous information from company disclosures, industry research, expert commentary, and open-source channels.</li>
+          <li>Evaluated investment hypotheses through multi-source evidence comparison, sector and company analysis, and market feedback.</li>
+          <li>Explored LLM-agent and quantitative approaches for information screening and signal validation — the origin of my interest in <strong>reliability and verification of AI agents</strong> under noisy, heterogeneous, dynamic information.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Research ============ -->
+  <section id="research" aria-label="Research">
+    <div class="sec-label">Research</div>
+
+    <div class="research-item">
+      <div class="ri-top">
+        <div>
+          <div class="ri-title">LENS: Large Pre-trained Transformer for Financial Time Series</div>
+          <div class="ri-role">Co-author (4th) · Research Assistant · Supervisor: Prof. Guang Zhang, HKUST(GZ) FinTech</div>
+        </div>
+        <span class="ri-status published">Published · ICAIF 2025</span>
+      </div>
+      <ul class="ri-body">
+        <li>Developed parallel and memory-efficient preprocessing pipelines for terabyte-scale financial trading data — up to 13× faster data cleaning and 6× faster statistical aggregation in internal benchmarks.</li>
+        <li>Co-authored the paper <strong>published at ACM ICAIF 2025</strong> (pp. 771–778); earlier version: PLUTUS, arXiv:2408.10111.</li>
+      </ul>
+    </div>
+
+    <div class="research-item">
+      <div class="ri-top">
+        <div>
+          <div class="ri-title">SpatialReflect: Spatially Disentangled Reflection for Controllable Generation</div>
+          <div class="ri-role">First Author · Independent Research · Supervisor: Prof. Zeke Xie, HKUST(GZ) DSA</div>
+        </div>
+        <span class="ri-status ended">Independent project · concluded 2026</span>
+      </div>
+      <ul class="ri-body">
+        <li>Led an independent study of failure modes in multi-region diffusion-based generation; developed a <strong>training-free framework</strong> for spatially controlled synthesis.</li>
+        <li>Conducted theoretical analysis and controlled experiments; completed a full first-author manuscript through one peer-review cycle — from problem formulation to method design, implementation, and writing.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Publications ============ -->
+  <section id="publications" aria-label="Publications">
+    <div class="sec-label">Publications</div>
+    <div class="pub">
+      Y. Xu, J. Hao, A. Liu, <strong>Z. Li</strong>, S. Meng, S. Yuan, G. Zhang, “LENS: Large Pre-trained Transformer for Exploring Financial Time Series Regularities,” in <em>Proceedings of the 6th ACM International Conference on AI in Finance (ICAIF ’25)</em>, pp. 771–778, 2025.
+      <div class="authors">Author order: Yuanjian Xu · Jianing Hao · Anxian Liu · Zhenzhuo Li (4th) · Shichang Meng · Shuai Yuan · Guang Zhang</div>
+      <div class="links">
+        <a href="https://doi.org/10.1145/3768292.3770349">DOI: 10.1145/3768292.3770349 ↗</a>
+        <span class="mono">Earlier version: PLUTUS, arXiv:2408.10111</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Awards ============ -->
+  <section id="awards" aria-label="Awards">
+    <div class="sec-label">Awards &amp; Honors</div>
+    <table class="awards">
+      <thead>
+        <tr><th scope="col">Year</th><th scope="col">Award</th><th scope="col">Result</th><th scope="col">Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="yr">2026</td><td>ASC World University Supercomputer Competition</td><td class="res gold">First Prize</td><td class="note">Team member</td></tr>
+        <tr><td class="yr">2026</td><td>HKUST(GZ) TradeMaster Cup Quantitative Trading Competition</td><td class="res">Team 5th Place</td><td class="note">Team Leader · factor backtesting &amp; strategy competition</td></tr>
+        <tr><td class="yr">2025</td><td>Lizhi Innovation Talent Scholarship (INFH)</td><td class="res">Awarded</td><td class="note">Jointly by HKUST(GZ) Information Hub &amp; Lizhi Group</td></tr>
+        <tr><td class="yr">2025</td><td>MCM/ICM Mathematical Contest in Modeling</td><td class="res">Honorable Mention</td><td class="note">International mathematical modeling</td></tr>
+        <tr><td class="yr">2025</td><td>ASC World University Supercomputer Competition</td><td class="res">Second Prize</td><td class="note">Team member</td></tr>
+        <tr><td class="yr">2024–25</td><td>Dean’s List, HKUST(GZ)</td><td class="res">×3 semesters</td><td class="note">2023-24 Spring · 2024-25 Fall · 2024-25 Spring</td></tr>
+        <tr><td class="yr">2023</td><td>Admission Scholarship, First Class</td><td class="res">Awarded</td><td class="note">HKUST(GZ), merit-based</td></tr>
+        <tr><td class="yr">38th/39th</td><td>Chinese Physics Olympiad (CPHO)</td><td class="res">Provincial First Prize ×2</td><td class="note">High school</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ Leadership & Education ============ -->
+  <section id="leadership" aria-label="Leadership">
+    <div class="sec-label">Leadership &amp; Activities</div>
+    <div class="two-col">
+      <div>
+        <div class="lead-item"><div class="t">Student Vice Secretary</div><div class="d">HKUST(GZ) Youth League Committee</div><div class="when">2024.05 – 2025.05</div></div>
+        <div class="lead-item"><div class="t">Committee Member</div><div class="d">HKUST(GZ) Student Affairs Committee</div><div class="when">2024.07 – 2025.06</div></div>
+        <div class="lead-item"><div class="t">Member</div><div class="d">Nansha Harbor Toastmasters — Dynamic Leadership path (hosting, structured presentation)</div><div class="when">Ongoing</div></div>
+      </div>
+      <div>
+        <div class="lead-item"><div class="t">Delegate</div><div class="d">Boao Forum for Asia Youth Summit</div><div class="when">2024.11</div></div>
+        <div class="lead-item"><div class="t">Participant</div><div class="d">ABBA Youth Association / Prudential Elite Internship Camp</div><div class="when">2025.02</div></div>
+        <div class="lead-item"><div class="t">Volunteering</div><div class="d">Community service 50+ hours · exhibition docent (12h)</div><div class="when">2020 – 2024</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Education ============ -->
+  <section id="education" aria-label="Education">
+    <div class="sec-label">Education</div>
+    <div class="two-col">
+      <div class="edu-block">
+        <div class="school">HKUST (Guangzhou)</div>
+        <div class="deg">BSc, Data Science and Big Data Technology · 2023 – 2027 (Expected Jun 2027)</div>
+        <div class="detail"><b>CGA</b> 3.807/4.3 · <b>Major CGA</b> 3.837 · <b>Dean’s List</b> ×3 · coursework incl. Advanced Algorithms &amp; Data Structures (A+), Intro to AI (A+), Database Management Systems (A+), Honors Calculus I/II (A+/A+)</div>
+      </div>
+      <div class="edu-block">
+        <div class="school">Osaka University</div>
+        <div class="deg">Exchange Student · Fall 2025</div>
+        <div class="detail">Japan · 3 transferred credits</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Skills ============ -->
+  <section id="skills" aria-label="Skills">
+    <div class="sec-label">Selected Skills</div>
+    <div class="two-col">
+      <div>
+        <dl class="skill-group">
+          <dt>Quantitative Research</dt>
+          <dd>Factor &amp; representation discovery · IC/decay analysis · leakage-aware evaluation · walk-forward validation · transaction-cost modeling · signal-to-decision modeling</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt>Machine Learning</dt>
+          <dd>PyTorch · LightGBM · XGBoost · Transformers · neural time-series modeling</dd>
+        </dl>
+      </div>
+      <div>
+        <dl class="skill-group">
+          <dt>Data &amp; Systems</dt>
+          <dd>Python · C++ · SQL · NumPy/Pandas · large-scale array processing (memmap) · Linux · Git · CUDA · MPI · Slurm</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt>Languages</dt>
+          <dd>Chinese (native) · English (full professional proficiency; program taught in English) · Japanese (JLPT N1)</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="quote">“A plausible explanation is not enough unless it survives temporal separation, alternative baselines, and changing market conditions.”</p>
+  <p class="meta">© 2026 Zhenzhuo Li · altairpaca@gmail.com · Last updated Aug 2026</p>
+</footer>
+
+<script>
+  // Scrollspy: highlight the section currently in view
+  (function () {
+    const links = document.querySelectorAll('nav.main-nav a');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    if (!('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          links.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(function (s) { obs.observe(s); });
+  })();
+</script>
 </body>
 </html>
