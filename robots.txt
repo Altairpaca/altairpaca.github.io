@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://altairpaca.github.io/sitemap.xml
