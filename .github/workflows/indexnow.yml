@@ -1,0 +1,20 @@
+name: IndexNow Submit Sitemap
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  indexnow-submit:
+    # Skip gracefully when the INDEXNOW_KEY secret is not configured yet.
+    if: ${{ secrets.INDEXNOW_KEY != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap URLs to IndexNow
+        uses: jakob-bagterp/index-now-submit-sitemap-urls-action@v1
+        with:
+          host: altairpaca.github.io
+          api_key: ${{ secrets.INDEXNOW_KEY }}
+          api_key_location: https://altairpaca.github.io/${{ secrets.INDEXNOW_KEY }}.txt
+          sitemap_locations: https://altairpaca.github.io/sitemap.xml
+          endpoint: bing
