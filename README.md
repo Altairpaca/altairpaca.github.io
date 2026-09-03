@@ -1,60 +1,69 @@
-# Altair Li — Personal Homepage
+# Altair Li — Academic & Research Homepage
 
-Personal academic homepage for Zhenzhuo Li (李臻卓), BSc candidate in Data Science and Big Data Technology at HKUST(GZ).
+Canonical academic homepage for Zhenzhuo (Altair) Li (李臻卓), BSc candidate in Data Science and Big Data Technology at HKUST(GZ).
+
+## Role of this site
+
+This repository is the **academic / research identity surface**. It is the canonical public place for:
+
+- research agenda and current academic direction;
+- publications and manuscripts;
+- research / internship experience;
+- education, awards, and CV-level biography;
+- links to the current academic CV and Google Scholar.
+
+The GitHub profile repository [`Altairpaca/Altairpaca`](https://github.com/Altairpaca/Altairpaca) has a different job: it is the **engineering / open-source identity surface**, emphasizing maintained projects, upstream contributions, technical invariants, review outcomes, and active OSS work. The two surfaces may cross-link selected evidence, but they should not become duplicate CVs.
 
 ## Design
 
-- **Style**: original academic design — warm paper background, deep-green accent, serif display type (Newsreader) with monospace details (IBM Plex Mono)
-- **Reference**: design principles drawn from academic homepages (e.g., Prof. Zeke Xie's site) — clear hierarchy, one mission per section, news/status strip — transformed into an original composition
-- **Content source of truth**: `../canonical-profile.md` (all facts must be updated there first, then mirrored here)
+- **Style**: original academic design — warm paper background, deep-green accent, serif display type with compact technical details.
+- **Content hierarchy**: research identity first; selected open-source work appears only as research-engineering evidence.
+- **Public source of truth**: this site for CV-level academic facts; GitHub profile README for OSS/engineering presentation.
 
 ## Structure
 
-```
+```text
 site/
-├── index.html       # Self-contained page: inline CSS + minimal scrollspy JS
+├── index.html       # Self-contained academic page: inline CSS + minimal JS
 ├── assets/
-│   ├── avatar.jpg   # Compressed 512px (58KB)
-│   └── resume.pdf   # Compiled from ../repo/English/main.tex (Aug 2026)
+│   ├── avatar.jpg
+│   └── resume.pdf
+├── docs/
+├── scripts/
 └── README.md
 ```
 
-- Static HTML with content in the document body (SEO / AI-crawler friendly)
-- Meta description, Open Graph, Twitter Card, Schema.org Person + ScholarlyArticle JSON-LD
-- Responsive, print stylesheet, `prefers-reduced-motion` support
+The page is static HTML with content in the document body for search/AI-crawler accessibility, plus meta description, Open Graph, Twitter Card, and Schema.org metadata.
 
 ## Deployment
 
-Push to `altairpaca.github.io` repo → GitHub Pages auto-deploys.
+Push to `altairpaca.github.io` → GitHub Pages auto-deploys.
 
-CV updates always go through `scripts/deploy.sh`. It compiles the PDF from the Overleaf source, syncs it into `assets/resume.pdf`, then commits and pushes the change.
+CV updates go through `scripts/deploy.sh`. It compiles the PDF from the CV source, syncs it into `assets/resume.pdf`, then commits and pushes the change.
 
-### Using scripts/deploy.sh
+### `scripts/deploy.sh`
 
-Requires `xelatex` on your PATH (ships with TeX Live or MacTeX).
+Requires `xelatex` on `PATH`.
 
-- `scripts/deploy.sh --dry-run`: prints every planned step without changing anything (no temp dir, no file changes)
-- `scripts/deploy.sh <note>`: full run, commits as "Update CV: <note>" (defaults to the current UTC timestamp)
+- `scripts/deploy.sh --dry-run`: print planned steps without changing files.
+- `scripts/deploy.sh <note>`: compile, sync the PDF, commit, and push.
 
-Four-step pipeline:
+Pipeline:
 
-1. **compile**: runs `xelatex -interaction=nonstopmode` twice on the CV source inside a fresh temp dir, never inside the CV repo
-2. **copy**: moves `main.pdf` to `assets/resume.pdf`, only when the compile exited 0 and the PDF exists
-3. **commit**: `git add assets/resume.pdf` and commit with message "Update CV: <note>"
-4. **push**: `git push origin main`
+1. **compile** — run `xelatex` twice in a fresh temporary directory;
+2. **copy** — update `assets/resume.pdf` only after a successful build;
+3. **commit** — commit the CV artifact with an explicit note;
+4. **push** — publish to `main`.
 
-## SEO & Search
+## SEO & search
 
-Live endpoints:
+Live endpoints include `robots.txt` and `sitemap.xml`. Google Search Console / Bing Webmaster Tools setup remains an account-level user action documented under `docs/`.
 
-- `https://altairpaca.github.io/robots.txt`: crawl rules plus the sitemap declaration
-- `https://altairpaca.github.io/sitemap.xml`: the two indexed URLs (homepage and resume PDF)
+## Maintenance rules
 
-Check indexed results with `site:altairpaca.github.io` in any search engine.
-
-**GSC / Bing status**: pending. Connecting Google Search Console and Bing Webmaster Tools is a user step; follow `docs/gsc-setup.md` and `docs/bing-setup.md` to complete it.
-
-Maintenance rule: CV updates always go through `scripts/deploy.sh`. Never edit `assets/resume.pdf` directly.
+- Keep academic facts, publication status, and CV-level claims conservative and verifiable.
+- Keep detailed PR/issue engineering narratives on the GitHub profile or the relevant project repository; the academic site should cite only selected outcomes that materially support the research identity.
+- Do not edit `assets/resume.pdf` manually; use the deployment script.
 
 ## License
 
