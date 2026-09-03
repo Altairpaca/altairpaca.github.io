@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate homepage evidence surface
+      - name: Validate academic homepage boundary
         run: |
           python - <<'PY'
           from html.parser import HTMLParser
@@ -28,23 +28,30 @@ jobs:
 
           required = [
               'id="proof"',
-              'id="opensource"',
               'id="research"',
+              'id="experience"',
+              'id="publication"',
+              'id="education"',
+              'id="engineering"',
               'Altairpaca/dshelm',
-              'code-yeongyu/oh-my-openagent/pull/6829',
-              'code-yeongyu/senpi/pull/1223',
-              'code-yeongyu/senpi/pull/1237',
+              'Altairpaca/AlphaSeeker-TradeMaster',
               '10.1145/3768292.3770349',
+              'GitHub engineering profile',
           ]
           missing = [needle for needle in required if needle not in text]
           if missing:
-              raise SystemExit(f'missing required homepage evidence: {missing}')
+              raise SystemExit(f'missing required academic homepage content: {missing}')
 
-          stale = [
-              'code-yeongyu/senpi/pull/835',
-              'NousResearch/hermes-agent/pull/31284',
+          # PR-level engineering narratives belong to the GitHub profile, not
+          # the academic site. This also prevents stale contribution links from
+          # silently turning the site back into a duplicate OSS profile.
+          forbidden = [
+              'id="opensource"',
+              'code-yeongyu/oh-my-openagent/pull/',
+              'code-yeongyu/senpi/pull/',
+              'NousResearch/hermes-agent/pull/',
           ]
-          present = [needle for needle in stale if needle in text]
+          present = [needle for needle in forbidden if needle in text]
           if present:
-              raise SystemExit(f'stale OSS evidence remains: {present}')
+              raise SystemExit(f'PR-level OSS content leaked into academic surface: {present}')
           PY
