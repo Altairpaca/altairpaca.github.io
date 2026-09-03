@@ -1,30 +1,37 @@
-# Altair Li — Academic & Research Homepage
+# Zhenzhuo (Altair) Li — Academic & Research Homepage
 
 Canonical academic homepage for Zhenzhuo (Altair) Li (李臻卓), BSc candidate in Data Science and Big Data Technology at HKUST(GZ).
 
 ## Role of this site
 
-This repository is the **academic / research identity surface**. It is the canonical public place for:
+This repository is the **application-oriented academic / research identity surface**: a visual CV for prospective PhD supervisors, research collaborators, and research-oriented employers. Its first job is to make the research trajectory and future direction legible before a reader opens the PDF CV.
 
-- research agenda and current academic direction;
-- publications and manuscripts;
-- research / internship experience;
-- education, awards, and CV-level biography;
-- links to the current academic CV and Google Scholar.
+The public hierarchy is:
 
-The GitHub profile repository [`Altairpaca/Altairpaca`](https://github.com/Altairpaca/Altairpaca) has a different job: it is the **engineering / open-source identity surface**, emphasizing maintained projects, upstream contributions, technical invariants, review outcomes, and active OSS work. The two surfaces may cross-link selected evidence, but they should not become duplicate CVs.
+1. research identity and current positioning;
+2. methodological research focus;
+3. forward research / career direction;
+4. selected research and publication evidence;
+5. research / internship experience;
+6. education and distinctions;
+7. one compact bridge to engineering / open-source evidence.
 
-## Design
+The GitHub profile repository [`Altairpaca/Altairpaca`](https://github.com/Altairpaca/Altairpaca) has a different job: it is the **engineering / open-source identity surface**, emphasizing maintained projects, upstream contributions, technical invariants, review outcomes, and active OSS work. The two surfaces cross-link, but should not become duplicate CVs or duplicate OSS profiles.
 
-- **Style**: original academic design — warm paper background, deep-green accent, serif display type with compact technical details.
-- **Content hierarchy**: research identity first; selected open-source work appears only as research-engineering evidence.
-- **Public source of truth**: this site for CV-level academic facts; GitHub profile README for OSS/engineering presentation.
+## Design principles
+
+- **Research before repositories**: organize the homepage around research questions, trajectory, and evidence rather than project inventory.
+- **Visual-CV density**: use a compact portrait hero, left-rail section labels, chronological experience, and publication-style research rows.
+- **Research visuals carry meaning**: diagrams and thumbnails support research interpretation rather than act as decorative product cards.
+- **Restrained academic palette**: warm neutral canvas, ink typography, deep blue and muted sage accents, minimal motion.
+- **No badge wall / stats cards**: social proof comes from publications, research experience, distinctions, and verifiable outcomes.
 
 ## Structure
 
 ```text
 site/
-├── index.html       # Self-contained academic page: inline CSS + minimal JS
+├── index.html       # semantic application-oriented academic homepage
+├── styles.css       # responsive visual-CV system
 ├── assets/
 │   ├── avatar.jpg
 │   └── resume.pdf
@@ -33,7 +40,7 @@ site/
 └── README.md
 ```
 
-The page is static HTML with content in the document body for search/AI-crawler accessibility, plus meta description, Open Graph, Twitter Card, and Schema.org metadata.
+The page keeps its substantive text in the document body for search / AI-crawler accessibility and includes meta description, Open Graph, Twitter Card, and Schema.org identity metadata.
 
 ## Deployment
 
@@ -61,8 +68,10 @@ Live endpoints include `robots.txt` and `sitemap.xml`. Google Search Console / B
 
 ## Maintenance rules
 
+- Keep research focus broad enough to express transferable methodological questions rather than locking the profile to one application or supervisor.
 - Keep academic facts, publication status, and CV-level claims conservative and verifiable.
-- Keep detailed PR/issue engineering narratives on the GitHub profile or the relevant project repository; the academic site should cite only selected outcomes that materially support the research identity.
+- Keep detailed PR / issue engineering narratives on the GitHub profile or the relevant project repository.
+- Open source belongs here only when it materially supports research capability or reproducibility.
 - Do not edit `assets/resume.pdf` manually; use the deployment script.
 
 ## License
