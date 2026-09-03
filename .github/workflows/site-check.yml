@@ -1,0 +1,50 @@
+name: Site check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate homepage evidence surface
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          text = Path('index.html').read_text(encoding='utf-8')
+
+          class Parser(HTMLParser):
+              pass
+
+          Parser().feed(text)
+
+          required = [
+              'id="proof"',
+              'id="opensource"',
+              'id="research"',
+              'Altairpaca/dshelm',
+              'code-yeongyu/oh-my-openagent/pull/6829',
+              'code-yeongyu/senpi/pull/1223',
+              'code-yeongyu/senpi/pull/1237',
+              '10.1145/3768292.3770349',
+          ]
+          missing = [needle for needle in required if needle not in text]
+          if missing:
+              raise SystemExit(f'missing required homepage evidence: {missing}')
+
+          stale = [
+              'code-yeongyu/senpi/pull/835',
+              'NousResearch/hermes-agent/pull/31284',
+          ]
+          present = [needle for needle in stale if needle in text]
+          if present:
+              raise SystemExit(f'stale OSS evidence remains: {present}')
+          PY
