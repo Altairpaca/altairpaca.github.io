@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate application homepage structure
+      - name: Validate professional homepage structure
         run: |
           python - <<'PY'
           from html.parser import HTMLParser
@@ -29,24 +29,24 @@ jobs:
 
           required = [
               'id="focus"',
-              'id="looking-forward"',
-              'id="selected-research"',
-              'id="publication"',
               'id="experience"',
+              'id="selected-research"',
+              'id="projects"',
+              'id="skills"',
+              'id="publication"',
               'id="education"',
-              'id="engineering"',
               'href="styles.css"',
               '10.1145/3768292.3770349',
-              'Reliable learning from non-stationary sequential data',
-              'Financial ML & quantitative decision-making',
+              'Market microstructure & Level-2 data',
+              'Financial ML & robust evaluation',
+              'High-performance research systems',
               'https://www.linkedin.com/in/zhenzhuo-li-2a2bb0307/',
+              'assets/resume.pdf',
           ]
           missing = [needle for needle in required if needle not in html]
           if missing:
-              raise SystemExit(f'missing required application-homepage content: {missing}')
+              raise SystemExit(f'missing required homepage content: {missing}')
 
-          # Detailed OSS/PR narratives belong to the GitHub profile. The academic
-          # homepage may keep one compact engineering-evidence bridge only.
           forbidden = [
               'id="opensource"',
               'code-yeongyu/oh-my-openagent/pull/',
@@ -54,16 +54,18 @@ jobs:
               'NousResearch/hermes-agent/pull/',
               'GitHub stats',
               'github-readme-stats',
+              '2027 PhD applicant',
+              'Agent evidence infrastructure',
           ]
           present = [needle for needle in forbidden if needle in html]
           if present:
-              raise SystemExit(f'OSS-profile content leaked into application surface: {present}')
-
-          if html.count('GitHub engineering profile') > 1:
-              raise SystemExit('engineering bridge should remain compact and non-duplicative')
+              raise SystemExit(f'outdated or OSS-heavy narrative leaked into homepage: {present}')
 
           css_required = ['.hero', '.cv-section', '.focus-row', '.research-item', '.portrait']
           css_missing = [needle for needle in css_required if needle not in css]
           if css_missing:
               raise SystemExit(f'missing core visual-CV styles: {css_missing}')
+
+          if not Path('assets/resume.pdf').exists():
+              raise SystemExit('assets/resume.pdf is missing')
           PY
