@@ -8,8 +8,8 @@ This repository is the **academic / professional overview surface**. It is desig
 
 The public hierarchy is:
 
-1. current quantitative-research positioning;
-2. research focus and current market-data work;
+1. financial machine learning, quantitative research and reliable AI systems;
+2. research focus and market-data work;
 3. internship / HPC experience;
 4. selected academic research;
 5. interviewable systems projects;
@@ -23,13 +23,14 @@ The GitHub profile repository [Altairpaca/Altairpaca](https://github.com/Altairp
 
 The homepage is intentionally centered on:
 
-- A-share Level-2 / minute quantitative research and market microstructure;
+- quantitative research on A-share Level-2 and minute market data;
 - financial ML with point-in-time, walk-forward and out-of-time evaluation;
 - C++ / Rust systems work with correctness and benchmarking;
 - CUDA / TensorRT / MPI / Slurm and high-performance computing;
-- selected research evidence: LENS, FYP, SpatialReflect and SPY VaR.
+- selected research work: LENS, the undergraduate FYP, SpatialReflect and SPY VaR;
+- public engineering work: the order-book replay prototype and DSH Federation Capabilities.
 
-Agent-runtime / upstream contribution narratives are intentionally kept out of the main public career framing. The FYP remains a multi-agent financial-forecasting research project because that is the actual academic scope.
+The GitHub profile README links to more public engineering work and upstream contributions.
 
 ## Structure
 
@@ -37,7 +38,7 @@ site/
 - index.html - semantic academic / professional homepage
 - styles.css - responsive visual-CV system
 - assets/avatar.jpg
-- assets/resume.pdf - current public English CV
+- assets/resume.pdf - September 2026 public English CV
 - docs/
 - scripts/
 - README.md
@@ -46,7 +47,7 @@ The page keeps substantive text in the document body for search / AI-crawler acc
 
 ## CV maintenance
 
-assets/resume.pdf is the current public CV baseline and should match the claims on the homepage and GitHub profile.
+The CV link identifies the date of `assets/resume.pdf`. Update the link label when replacing the PDF with a newer version.
 
 A legacy local helper exists at scripts/deploy.sh; it points to a machine-local English CV source. **Do not run it unless that local source has first been synchronized to the current resume narrative**, otherwise it can overwrite the public PDF with an older version.
 
